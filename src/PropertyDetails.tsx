@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { PropertyContext } from './utils/PropertyContext';
+import ListingsDetail from './components/ListingsDetail';
 import { useParams } from 'react-router-dom';
-import { usePropertyContext } from './utils/PropertyContext';
 
 const PropertyDetails: React.FC = () => {
-  const { properties } = usePropertyContext();
+  const { selectedProperty } = useContext(PropertyContext);
   const { id } = useParams<{ id: string }>();
-  // @ts-ignore
-  const property = properties.find(prop => prop.id === parseInt(id, 10));
-
-  if (!property) {
-    return <div>Property not found</div>;
+  // 对比url的查询参数和Context是否一致
+  if (selectedProperty?.id !== Number(id)) {
+    return <div>Not found</div>;
   }
 
-  return (
-    <div>
-      <h1>{property.propertyName}</h1>
-      <p>{property.id}</p>
-    </div>
-  );
+  return <ListingsDetail {...selectedProperty}/>
 };
 
 export default PropertyDetails;

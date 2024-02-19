@@ -1,29 +1,29 @@
-import React, { useEffect } from 'react';
-import { usePropertyContext } from './utils/PropertyContext';
-import {mockPropertyDetails} from './utils/propertyData';
+import React, { useEffect, useContext } from 'react';
+import { PropertyContext } from './utils/PropertyContext';
+
 import ListingsItem from './components/ListingsItem';
 
 const PropertyListings: React.FC = () => {
-  const { properties, setProperties } = usePropertyContext();
+  const { properties, selectProperty } = useContext(PropertyContext);
 
-  useEffect(() => {
-    // 模拟获取房产列表数据的过程
-    const fetchData = () => {
-      setProperties(mockPropertyDetails);
-    };
-
-    fetchData();
-  }, [setProperties]);
+  const handlePropertySelect = (propertyId: number) => {
+    // 点击设置PropertyDetails
+    if (propertyId) {
+      selectProperty(propertyId);
+    }
+  };
 
   return (
     <div>
       <h1>Property Listings</h1>
       <ul>
         {properties.map(property => (
-          <ListingsItem
+          <li
             key={property.id}
-            {...property}
-          />
+            onClick={() => handlePropertySelect(property.id)}
+          >
+            <ListingsItem {...property} />
+          </li>
         ))}
       </ul>
     </div>

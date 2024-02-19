@@ -7,12 +7,6 @@ export interface Address {
   state: string;
   zipCode: string;
 }
-export interface Address {
-  street: string;
-  city: string;
-  state: string;
-  zipCode: string;
-}
 export interface Manager {
   name: string;
   contact: string;
@@ -23,6 +17,7 @@ export interface Details {
   amenities: string[];
   petPolicy: string;
   description: string;
+  [key: string]: number | string[] | string;
 }
 
 /*
