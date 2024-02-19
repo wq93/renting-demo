@@ -1,11 +1,21 @@
-import "./styles.css";
+// App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { PropertyProvider } from '../utils/PropertyContext';
+import PropertyListings from './PropertyListings';
+import PropertyDetails from './PropertyDetails';
 
-export default function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>React 18 template</h1>
-      <h2>With TypeScript and React Router Dom</h2>
-      <a href="/details/1">1111</a>
-    </div>
+    <PropertyProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<PropertyListings />} />
+          <Route path="/property/:id" element={<PropertyDetails />} />
+        </Routes>
+      </Router>
+    </PropertyProvider>
   );
-}
+};
+
+export default App;
