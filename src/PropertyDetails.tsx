@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { usePropertyContext } from '../utils/PropertyContext';
+import { usePropertyContext } from './utils/PropertyContext';
 
 const PropertyDetails: React.FC = () => {
   const { properties } = usePropertyContext();
@@ -14,9 +14,8 @@ const PropertyDetails: React.FC = () => {
 
   return (
     <div>
-      <h1>{property.name}</h1>
-      <p>{property.price}</p>
-      <p>{property.description}</p>
+      <h1>{property.propertyName}</h1>
+      <p>{property.id}</p>
     </div>
   );
 };

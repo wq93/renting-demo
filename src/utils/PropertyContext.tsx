@@ -1,16 +1,12 @@
 // PropertyContext.tsx
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-interface Property {
-  id: number;
-  name: string;
-  price: string;
-  description: string;
-}
+import { PropertyDetail } from '../utils/propertyData';
+
 
 interface PropertyContextType {
-  properties: Property[];
-  setProperties: React.Dispatch<React.SetStateAction<Property[]>>;
+  properties: PropertyDetail[];
+  setProperties: React.Dispatch<React.SetStateAction<PropertyDetail[]>>;
 }
 
 const PropertyContext = createContext<PropertyContextType | undefined>(undefined);
@@ -23,8 +19,8 @@ export const usePropertyContext = () => {
   return context;
 };
 
-export const PropertyProvider: React.FC = ({ children }) => {
-  const [properties, setProperties] = useState<Property[]>([]);
+export const PropertyProvider: React.FC<{children: ReactNode }> = ({ children }) => {
+  const [properties, setProperties] = useState<PropertyDetail[]>([]);
 
   return (
     <PropertyContext.Provider value={{ properties, setProperties }}>
