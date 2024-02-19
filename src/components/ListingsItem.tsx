@@ -1,3 +1,4 @@
+/* 房产列表单项组件 */
 import { Link } from 'react-router-dom';
 import { PropertyListing } from '../utils/propertyData';
 

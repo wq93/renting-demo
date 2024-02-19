@@ -1,9 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import { FC, useContext } from 'react';
 import { PropertyContext } from './utils/PropertyContext';
 
 import ListingsItem from './components/ListingsItem';
 
-const PropertyListings: React.FC = () => {
+const PropertyListings: FC = () => {
   const { properties, selectProperty } = useContext(PropertyContext);
 
   const handlePropertySelect = (propertyId: number) => {

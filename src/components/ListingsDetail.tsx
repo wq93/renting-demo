@@ -1,5 +1,5 @@
+/* 房产详情组件 */
 import { PropertyDetail } from '../utils/propertyData';
-
 const ListingsItem: React.FC<PropertyDetail> = (props) => {
   const {
     id,

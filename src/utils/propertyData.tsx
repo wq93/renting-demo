@@ -1,54 +1,61 @@
 /*
-* 数据声明
-* */
+ * 地址数据声明
+ */
 export interface Address {
-  street: string;
-  city: string;
-  state: string;
-  zipCode: string;
+  street: string; // 街道
+  city: string; // 城市
+  state: string; // 州/省
+  zipCode: string; // 邮政编码
 }
+/*
+ * 经理数据声明
+ */
 export interface Manager {
-  name: string;
-  contact: string;
+  name: string; // 姓名
+  contact: string; // 联系方式
 }
+
+/*
+ * 详细信息数据声明
+ */
 export interface Details {
-  yearBuilt: number;
-  unitTypes: string[];
-  amenities: string[];
-  petPolicy: string;
-  description: string;
-  [key: string]: number | string[] | string;
+  yearBuilt: number; // 建造年份
+  unitTypes: string[]; // 单元类型列表
+  amenities: string[]; // 设施列表
+  petPolicy: string; // 宠物政策
+  description: string; // 描述
+  [key: string]: number | string[] | string; // 其他可能的属性
 }
 
 /*
-* 数据声明-房产列表
-* */
+ * 房产列表数据声明
+ */
 export interface PropertyListing {
-  id: number;
-  propertyName: string;
-  address: Address;
-  numberOfUnits: number;
-  propertyManager: Manager;
-  monthlyRent: number;
-  status: string;
+  id: number; // 房产ID
+  propertyName: string; // 房产名称
+  address: Address; // 地址信息
+  numberOfUnits: number; // 单元数量
+  propertyManager: Manager; // 物业经理信息
+  monthlyRent: number; // 月租金
+  status: string; // 状态
 }
 
 /*
-* 数据声明-房产详情
-* */
+ * 房产详情数据声明
+ */
 export interface PropertyDetail {
-  id: number;
-  propertyName: string;
-  address: Address;
-  numberOfUnits: number;
-  propertyManager: Manager;
-  monthlyRent: number;
-  status: string;
-  propertyDetails: Details;
+  id: number; // 房产ID
+  propertyName: string; // 房产名称
+  address: Address; // 地址信息
+  numberOfUnits: number; // 单元数量
+  propertyManager: Manager; // 物业经理信息
+  monthlyRent: number; // 月租金
+  status: string; // 状态
+  propertyDetails: Details; // 房产详细信息
 }
 
 /*
-* 数据声明-房产列表
+* 示例数据-房产列表
 * */
 export const mockPropertyListings: PropertyListing[] = [
   {
@@ -105,7 +112,7 @@ export const mockPropertyListings: PropertyListing[] = [
 ];
 
 /*
-* 数据声明-房产详情
+* 示例数据-房产详情
 * */
 export const mockPropertyDetails: PropertyDetail[] = [
   {
