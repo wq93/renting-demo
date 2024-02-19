@@ -4,3 +4,4 @@ logs
 .idea
 .history
 dist
+yarn-error.log

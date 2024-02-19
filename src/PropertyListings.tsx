@@ -1,4 +1,3 @@
-// PropertyListings.tsx
 import React, { useEffect } from 'react';
 import { usePropertyContext } from '../utils/PropertyContext';
 
@@ -8,7 +7,7 @@ const PropertyListings: React.FC = () => {
   useEffect(() => {
     // 模拟获取房产列表数据的过程
     const fetchData = async () => {
-      const response = await fetch('/properties.json');
+      const response = await fetch('./utils/propertyData.json');
       const data = await response.json();
       setProperties(data);
     };
